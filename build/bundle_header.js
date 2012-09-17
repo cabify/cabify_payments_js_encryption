@@ -1,0 +1,1 @@
+CabifyPayments = (function () {
