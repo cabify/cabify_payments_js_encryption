@@ -9,7 +9,7 @@ TARGET_DIR = File.join(ROOT_DIR, "target")
 SPEC_RUNNER = File.join(SPEC_DIR, "SpecRunner.html")
 SJCL_DIR = File.join(LIB_DIR, "sjcl/core")
 
-VERSION = File.read("#{LIB_DIR}/cabify_payments.js")[/version: '([0-9.]+)'/, 1]
+VERSION = File.read("#{LIB_DIR}/cabify_payments.js")[/version:\s+'([0-9.]+)'/, 1]
 
 task :default => "test:run_default"
 

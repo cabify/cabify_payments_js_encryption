@@ -37,23 +37,23 @@ describe("CabifyPayments", function () {
     };
 
     it("encrypts the given text with the public key", function () {
-      var cabifyPayments = CabifyPayments.create(publicKey);
-      var encrypted = cabifyPayments.encrypt("test data");
+      CabifyPayments.publicKey = publicKey;
+      var encrypted = CabifyPayments.encrypt("test data");
 
       expect(decrypt(encrypted)).toEqual("test data");
     });
 
     it("encrypts the given lengthy text with the public key", function () {
-      var cabifyPayments = CabifyPayments.create(publicKey);
+      CabifyPayments.publicKey = publicKey;
       var plainText = "lengthy test data lenghty test data lengthy test data 123456";
-      var encrypted = cabifyPayments.encrypt(plainText);
+      var encrypted = CabifyPayments.encrypt(plainText);
 
       expect(decrypt(encrypted)).toEqual(plainText);
     });
 
     it("prepends the encrypted data with $cp1", function () {
-      var cabifyPayments = CabifyPayments.create(publicKey);
-      var encrypted = cabifyPayments.encrypt("test data");
+      CabifyPayments.publicKey = publicKey;
+      var encrypted = CabifyPayments.encrypt("test data");
 
       expect(encrypted).toMatch(/^\$cp1\$/);
     });
